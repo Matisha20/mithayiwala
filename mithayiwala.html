@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>मिठाईवाला - यूएई की मिठाइयाँ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff9f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ff6f00;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card-content h2 {
+      color: #e67300;
+      margin: 10px 0 5px;
+    }
+
+    .details {
+      display: none;
+      background-color: #fff8eb;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .highlight {
+      background: #ffe3c0;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .btn {
+      background-color: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: #e55b00;
+    }
+
+    .confirmation {
+      display: none;
+      text-align: center;
+      padding: 50px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍬 मिठाईवाला</h1>
+    <p>यूएई की पारंपरिक मिठाइयाँ - क्लिक करें, जानें, और ऑर्डर करें!</p>
+  </header>
+
+  <div class="container">
+    <div class="card" onclick="showDetails('luqaimat')">
+      <img src="https://www.chocolatesandchai.com/wp-content/uploads/2024/10/Luqaimat-Featured.jpg" alt="लुक़ैमात">
+      <div class="card-content">
+        <h2>लुक़ैमात</h2>
+      </div>
+    </div>
+    <div class="card" onclick="showDetails('khanfaroosh')">
+      <img src="https://halalhomecookingcom.wordpress.com/wp-content/uploads/2016/03/khanfaroosh-khanfaroush.jpg?w=735" alt="ख़नफ़रूश">
+      <div class="card-content">
+        <h2>ख़नफ़रूश</h2>
+      </div>
+    </div>
+    <div class="card" onclick="showDetails('chebab')">
+      <img src="https://media.assettype.com/gulfnews%2Fimport%2F2021%2F12%2F27%2FEmirati-Chebab_176a46c291f_medium.jpg?w=1200&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100" alt="चेबाब">
+      <div class="card-content">
+        <h2>चेबाब</h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="luqaimat" class="details">
+    <h2>लुक़ैमात</h2>
+    <p>मूल्य: AED 15 / प्लेट</p>
+    <p>कैलोरी: 300 किलो कैलोरी / प्लेट</p>
+    <p>स्वाद: कुरकुरी बाहर से, अंदर से नरम; ऊपर से खजूर की चाशनी डली होती है।</p>
+    <div class="highlight">🎁 इस ऑर्डर के साथ फ्री चाय!</div>
+    <button class="btn" onclick="placeOrder()">ऑर्डर करें</button>
+  </div>
+
+  <div id="khanfaroosh" class="details">
+    <h2>ख़नफ़रूश</h2>
+    <p>मूल्य: AED 18 / 4 पीस</p>
+    <p>कैलोरी: 250 किलो कैलोरी / पीस</p>
+    <p>स्वाद: हल्की, फूलदार मिठाई जो ताज़ा मसालों और इलायची की खुशबू से भरपूर होती है।</p>
+    <div class="highlight">🎁 इस ऑर्डर के साथ फ्री चाय!</div>
+    <button class="btn" onclick="placeOrder()">ऑर्डर करें</button>
+  </div>
+
+  <div id="chebab" class="details">
+    <h2>चेबाब पैनकेक</h2>
+    <p>मूल्य: AED 20 / प्लेट</p>
+    <p>कैलोरी: 320 किलो कैलोरी / प्लेट</p>
+    <p>स्वाद: यूएई का पारंपरिक नाश्ता, मीठा पैनकेक जो खजूर की चाशनी और चीज़ के साथ परोसा जाता है।</p>
+    <div class="highlight">🎁 इस ऑर्डर के साथ फ्री चाय!</div>
+    <button class="btn" onclick="placeOrder()">ऑर्डर करें</button>
+  </div>
+
+  <div id="confirmation" class="confirmation">
+    <h2>🎉 आपका ऑर्डर सफल हुआ!</h2>
+    <p>आपकी मिठाई और फ्री चाय रास्ते में है (कल्पना में 😄)!</p>
+    <button class="btn" onclick="goHome()">🏠 होम पेज पर लौटें</button>
+  </div>
+
+  <script>
+    function showDetails(id) {
+      document.querySelectorAll('.details').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.confirmation').forEach(c => c.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo(0, document.getElementById(id).offsetTop - 20);
+    }
+
+    function placeOrder() {
+      document.querySelectorAll('.details').forEach(d => d.style.display = 'none');
+      document.getElementById('confirmation').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function goHome() {
+      document.getElementById('confirmation').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
